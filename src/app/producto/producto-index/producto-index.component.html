@@ -1,0 +1,68 @@
+<br>
+<br>
+<h1 class="text-center">Menú</h1>
+<br>
+<br>
+<ng-template #loading>
+  <img class="img-fluid rounded mx-auto d-block" src="/assets/img-producto/cargando.gif" alt="Cargando..."
+    style="width: 300px;" />
+</ng-template>
+
+<a class="btn btn-info btn-lg shadow m-2" [routerLink]="['/producto/create/']" routerLinkActive="active">Crear</a>
+<ng-template [ngIf]="datos" [ngIfElse]="loading">
+
+  <div class="container-fluid" margen>
+    <br>
+
+    <br>
+    <br>
+    <!-- Basicas -->
+
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+
+      <div *ngFor="let item of datos">
+        <div class="col">
+          <div class="card shadow-lg m-3">
+
+            <img src="{{item.imagePath}}" alt="Producto {{item.nombre}}" class="img-thumbnail" />
+
+            <div class="card-body">
+
+              <h4 class="card-title">Categoría: {{ item.categoria.nombre }}</h4>
+
+              <p>Detalle: {{ item.detalle }}</p>
+
+              <h5 id="cText" class="card-text">Precio: <span id="cText">₡{{ item.precio}}</span></h5>
+              <ng-template [ngIf]="item.promocion==1" [ngIfElse]="no"></ng-template>
+              <span id="cText">Promoción: </span>
+              <input type="checkbox" checked>
+
+              <ng-template #no>
+                <input type="checkbox">
+              </ng-template>
+            </div>
+  <a class="btn btn-primary m-2" routerLink="/producto/update/{{item.id}}" routerLinkActive="active">
+    <i class="fas fa-edit"></i></a>
+  <a class="btn btn-primary m-2" routerLink="/producto/delete/{{item.id}}" routerLinkActive="active">
+    <i class="fas fa-trash-alt"></i></a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- -------------------------------------------- -->
+
+
+    <hr>
+    <br>
+  </div>
+
+
+</ng-template>
+<br>
+<br>
+<br>
+<br>
+<br>

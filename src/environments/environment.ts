@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  // SI hay un error es por que en lugar de v1 puse Home
+  production: false,
+  apiURL: 'http://127.0.0.1:8000/api/Home',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

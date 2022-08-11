@@ -1,0 +1,137 @@
+/* Generales */
+/* COLOR: #BFA56F */
+/* COLOR: #784D38 */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  background-color: white;
+  font-family: sans-serif;
+  text-transform: none !important;
+
+}
+
+/* Formulario */
+.form {
+  background: #c7ad7a;
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+.text,
+.texta {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  background: none;
+  background-image: none;
+  border: 2px solid #6d290194;
+  border-style: outset;
+  color: black;
+  border-radius: 0;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* #sl{
+  m
+} */
+
+.text:focus,
+.texta:focus {
+  outline: 0;
+  border-color: rgb(3, 119, 173);
+}
+
+.texta {
+  border: 2px solid #a0b3b0;
+  resize: vertical;
+}
+
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 80px;
+}
+
+
+label {
+  color: white;
+}
+
+#botones {
+  padding-left: 125px;
+}
+
+output {
+  border-color: transparent;
+  color: rgba(64, 233, 12, 0.973);
+}
+
+#icon-login {
+  margin-left: 40%;
+}
+
+#tInicio {
+  height: 30px;
+  width: 520px;
+}
+
+/* #rg{
+  margin-top: 50px;
+  margin-left:200px;
+  background-color: #8BAAD6;
+} */
+
+#rg {
+  font-size: 16px;
+  /* Cambiar el tamaño de la tipografia */
+  text-transform: uppercase;
+  /* Texto en mayusculas */
+  font-weight: bold;
+  /* Fuente en negrita o bold */
+  color: #ffffff;
+  /* Color del texto */
+  border-radius: 5px;
+  /* Borde del boton */
+  letter-spacing: 2px;
+  /* Espacio entre letras */
+  background-color: #8BAAD6;
+  /* Color de fondo */
+  padding: 18px 30px;
+  /* Relleno del boton */
+  position: fixed;
+  /* bottom: 40px;
+  right: 40px; */
+  transition: all 300ms ease 0ms;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+#rg:hover {
+  background-color: #3371c9;
+  /* Color de fondo al pasar el cursor */
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-7px);
+}
+
+@media only screen and (max-width: 1000px) {
+  #rg {
+    font-size: 14px;
+    padding: 12px 20px;
+    /* bottom: 20px;
+    right: 20px; */
+  }
+}

@@ -1,0 +1,115 @@
+<br>
+<br>
+<br>
+
+<ng-template #loading>
+  <img class="img-fluid rounded mx-auto d-block" src="/assets/img/cargando.gif" alt="Cargando..."
+    style="width: 300px;" />
+</ng-template>
+<ng-template [ngIf]="producto" [ngIfElse]="loading">
+  <button type="button" id="rg" class="float-left m-5" (click)="onBack()">
+    <i class="fas fa-arrow-circle-left"></i> Regresar
+  </button>
+  <form [formGroup]="formUpdate" (ngSubmit)="submitForm()" novalidate>
+
+    <div class="form">
+      <div>
+        <h4 id="tInicio" class="text-white text-center">Actualiza el producto</h4>
+        <br>
+        <br>
+        <input type="hidden" formControlName="id" />
+        <div class="field-wrap">
+          <label class="p-2">
+            Nombre:
+          </label>
+          <br>
+          <div class="col-md-10">
+            <input class="text" type="text" formControlName="nombre" name="nombre">
+          </div>
+          <small *ngIf="errorHandling('nombre', 'required')" class="text-danger">
+            El nombre es requerido
+          </small>
+        </div>
+
+        <div class="field-wrap">
+          <label class="p-2">
+            Detalle:
+          </label>
+          <div class="col-md-10">
+            <textarea class="text" formControlName="detalle" name="detalle"></textarea>
+
+          </div>
+          <small *ngIf="errorHandling('detalle', 'required')" class="text-danger">
+            La descripción es requerida
+          </small>
+        </div>
+
+        <div class="field-wrap">
+          <label class="p-2">
+            Precio:
+          </label>
+          <div class="col-md-10">
+            <input name="precio" class="text" type="text" formControlName="precio">
+          </div>
+          <small *ngIf="errorHandling('precio', 'required')" class="text-danger">
+            El precio es requerido
+          </small>
+          <small *ngIf="errorHandling('precio', 'pattern')" class="text-danger">
+            El precio debe contener solo números
+          </small>
+        </div>
+        <hr>
+        <div class="field-wrap">
+          <label class="p-2">
+            Promocion:
+          </label>
+          <input type="checkbox" formControlName="promocion" value="1">
+          <small *ngIf="errorHandling('promocion', 'required')" class="text-danger">
+            La promocion del producto es requerido
+          </small>
+          <br>
+        </div>
+        <hr>
+        <div class="field-wrap">
+          <label class="col-md-4 control-label p-2">Categoría:</label>
+
+          <select name="type" formControlName="categoria_id">
+            <option *ngFor="let categoria of categoriasList" [value]="categoria.id">{{categoria.nombre}}</option>
+          </select>
+          <small *ngIf="errorHandling('categoria_id', 'required')" class="text-danger">
+            La categoria es requerida
+          </small>
+        </div>
+        <hr>
+        <hr>
+
+        <div class="col-md-6 m-2">
+          <div class="form-group row">
+            <label for="img" class="col-sm-4 col-form-label">Imagen:</label>
+            <div class="col-sm-8">
+              <input type="file" name="img" class="formControl" (change)="onFileSelect($event)" />
+            </div>
+          </div>
+          <small *ngIf="errorHandling('img', 'required')" class="text-danger">
+            La imagen es requerida
+          </small>
+          <br>
+          <div class="card" style="width: 18rem; margin-left:95px;" *ngIf="imageURL && imageURL !== ''">
+            <img [src]="imageURL" class="img-fluid card-img-top">
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div id="botones">
+          <button type="submit" class="btn btn-success btn-lg align-center m-2" value="Guardar">Guardar</button>
+          <button type="reset" class="btn btn-danger btn-lg" (click)="onReset()">Cancelar</button>
+        </div>
+
+
+      </div>
+
+    </div>
+  </form>
+</ng-template>
