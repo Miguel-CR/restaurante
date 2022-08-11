@@ -25,6 +25,8 @@ export class ProductoIndexComponent implements OnInit {
       });
   }
 
+
+
   ngOnInit(): void {
     // this.gService.getProductos().subscribe((resp) => {
     //   this.productos = resp;

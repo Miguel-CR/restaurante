@@ -24,11 +24,11 @@ export class GenericService {
     );
     this.headers_formdata = this.headers_formdata.append(
       'Content-Type',
-      'multipart/form-data',
+      'multipart/form-data'
     );
     this.headers_formdata = this.headers_formdata.append(
       'Access-Control-Allow-Origin',
-      'bundary=14777'
+      '*'
     );
   }
   // Listar
@@ -47,6 +47,9 @@ export class GenericService {
   // crear
   create(endopoint: string, objCreate: any | any): Observable<any | any[]> {
     return this.http.post<any | any[]>(this.urlAPI + endopoint, objCreate);
+  }
+  delete(endopoint: string, objDelete: any | any): Observable<any | any[]> {
+    return this.http.post<any | any[]>(this.urlAPI + endopoint, objDelete);
   }
   // actualizar
   update(endopoint: string, objUpdate: any | any): Observable<any | any[]> {
